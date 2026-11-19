@@ -64,6 +64,33 @@
 
         <!-- Naam Gegevens -->
 
+        <div class="col-md-6">
+            <b>Naamgegevens</b>
+        </div>
+
+        <div class="col-md-3 form-filler">
+            <input type="number" id="inputPersoonID">
+        </div>
+
+        <div class="col-md-3 form-filler">
+            <input type="number" id="inputPatientID">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputVoornaam" class="form-label">Voornamen</label>
+            <input type="text" id="inputVoornaam" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputRoepnaam" class="form-label">Roepnaam</label>
+            <input type="text" id="inputRoepnaam" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputAchternaam" class="form-label">Achternaam</label>
+            <input type="text" id="inputAchternaam" class="form-control" required>
+        </div>
+
         <div class="col-md-2">
             <label for="inputTitels" class="form-label">Titels</label>
             <input type="text" id="inputTitels" class="form-control">
@@ -79,43 +106,56 @@
             <input type="text" id="inputVoorvoegsels" class="form-control">
         </div>
 
-        <div class="col-md-6">
-            <label for="inputAchternaam" class="form-label">Achternaam</label>
-            <input type="text" id="inputAchternaam" class="form-control" required>
+        <!-- Extra gegevens-->
+
+        <div class="col-md-12">
+            <b>Persoonsgegevens</b>
         </div>
 
-        <div class="col-md-6">
-            <label for="inputVoornaam" class="form-label">Voornamen</label>
-            <input type="text" id="inputVoornaam" class="form-control">
+        <div class="col-md-2">
+            <label for="inputGeslacht" class="form-label">Geslacht</label>
+            <select id="inputGeslacht" class="form-control">
+                <option value="" selected disabled hidden>Selecteer geslacht</option>
+                <option value="M">Man</option>
+                <option value="F">Vrouw</option>
+                <option value="UN">Anders</option>
+            </select>
         </div>
 
-        <div class="col-md-6">
-            <label for="inputRoepnaam" class="form-label">Roepnaam</label>
-            <input type="text" id="inputRoepnaam" class="form-control" required>
+        <div class="col-md-2">
+            <label for="inputGebdat" class="form-label">Geboortedatum</label>
+            <input type="date" id="inputGebdat" class="form-control">
         </div>
 
-        <div class="col-md-6 form-filler"></div>
+        <div class="col-md-2">
+            <label for="inputIQ" class="form-label">IQ</label>
+            <input type="number" id="inputIQ" class="form-control">
+        </div>
 
         <!-- Adres gegevens -->
 
-        <div class="col-md-2">
+        <div class="col-md-12">
+            <b>Adresgegevens</b>
+        </div>
+
+        <div class="col-md-6">
             <label for="inputStraat" class="form-label">Straat</label>
             <input type="text" id="inputStraat" class="form-control">
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-3">
             <label for="inputHuisnummer" class="form-label">Huisnummer</label>
             <input type="text" id="inputHuisnummer" class="form-control">
         </div>
 
-        <div class="col-md-2">
-            <label for="inputWoonplaats" class="form-label">Woonplaats</label>
-            <input type="text" id="inputWoonplaats" class="form-control">
-        </div>
-
-        <div class="col-md-2">
+        <div class="col-md-3">
             <label for="inputPostcode" class="form-label">Postcode</label>
             <input type="text" id="inputPostcode" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputWoonplaats" class="form-label">Woonplaats</label>
+            <input type="text" id="inputWoonplaats" class="form-control">
         </div>
 
         <div class="col-md-6">
@@ -123,9 +163,11 @@
             <input type="text" id="inputGemeente" class="form-control" required>
         </div>
 
-        <div class="col-md-6 form-filler"></div>
-
         <!-- Contact gegevens -->
+
+        <div class="col-md-12">
+            <b>Contactgegevens</b>
+        </div>
 
         <div class="col-md-6">
             <label for="inputEmailadres" class="form-label">Emailadres</label>
@@ -137,9 +179,11 @@
             <input type="text" id="inputTelefoonnummer" class="form-control">
         </div>
 
-        <div class="col-md-6 form-filler"></div>
-
         <!--         Woonsituatie  -->
+
+        <div class="col-md-12">
+            <b>Woonsituatie</b>
+        </div>
 
         <div class="col-md-6">
             <label for="inputWoningdatum" class="form-label">Woningdatum</label>
@@ -202,36 +246,6 @@
         </div>
 
         <div class="col-md-6 form-filler"></div>
-
-<!-- Extra gegevens-->
-
-        <div class="col-md-6 form-filler">
-            <input type="number" id="inputPersoonID">
-        </div>
-
-        <div class="col-md-6 form-filler">
-            <input type="number" id="inputPatientID">
-        </div>
-
-        <div class="col-md-6">
-            <label for="inputGeslacht" class="form-label">Geslacht</label>
-            <select id="inputGeslacht" class="form-control">
-                <option value="" selected disabled hidden>Selecteer geslacht</option>
-                <option value="M">Man</option>
-                <option value="F">Vrouw</option>
-                <option value="UN">Anders</option>
-            </select>
-        </div>
-
-        <div class="col-md-6">
-            <label for="inputGebdat" class="form-label">Geboortedatum</label>
-            <input type="date" id="inputGebdat" class="form-control">
-        </div>
-
-        <div class="col-md-2">
-            <label for="inputIQ" class="form-label">IQ</label>
-            <input type="number" id="inputIQ" class="form-control">
-        </div>
 
     </form>
 </div>

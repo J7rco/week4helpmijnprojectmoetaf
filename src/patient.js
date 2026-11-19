@@ -75,7 +75,6 @@ function getBasicPatientObjFromForm(){
         "achternaam": replaceEmptyStrWithNull(document.getElementById("inputAchternaam").value),
         "voornamen": replaceEmptyStrWithNull(document.getElementById("inputVoornaam").value),
         "roepnaam": replaceEmptyStrWithNull(document.getElementById("inputRoepnaam").value),
-        "gender": parseInt(document.getElementById("inputGender").value),
         "geslacht": replaceEmptyStrWithNull(document.getElementById("inputGeslacht").value),
         "geboortedatum": replaceEmptyStrWithNull(document.getElementById("inputGebdat").value),
         "straat":replaceEmptyStrWithNull(document.getElementById("inputStraat").value),
