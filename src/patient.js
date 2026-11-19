@@ -14,28 +14,6 @@ function deletePatientCall(patientID){
     )
 }
 
-function deletePatient(){
-    const patientID = sessionStorage.getItem("selectedPatientID")
-
-    try{
-        deleteBehandelCombinatie(patientID, getArtsId())
-            .then(deletePatientCall(patientID))
-            .then(deletePersoon(patientID))
-            .then(function(data){
-                if (data !== "FAIL"){
-                    displayAlert("patient_details_alert", "Patiënt verwijderd!", "success")
-                    window.location.href = "/patients"
-                } else {
-                    hideModal()
-                    displayAlert("patient_details_alert", "Patiënt kon niet worden verwijderd, probeer het later nog eens", "danger")
-                }
-            })
-    } catch {
-        hideModal()
-        displayAlert("patient_details_alert", "Patiënt kon niet worden verwijderd, probeer het later nog eens", "danger")
-    }
-
-}
 
 function callInsertPatient(patient){
     return $.ajax(
@@ -85,11 +63,11 @@ function getBasicPatientObjFromForm(){
         "emailadres":replaceEmptyStrWithNull(document.getElementById("inputEmailadres").value),
         "telefoonnummer":replaceEmptyStrWithNull(document.getElementById("inputTelefoonnummer").value),
         "woningdatum":replaceEmptyStrWithNull(document.getElementById("inputWoningdatum").value),
-        "woningtype":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
-        "woningomstandigheid":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
-        "woningaanpassing":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
-        "woningtoelichting":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
-        "iq":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
+        "woningtype":replaceEmptyStrWithNull(document.getElementById("WoningTypeCodelijst").value),
+        "woningomstandigheid":replaceEmptyStrWithNull(document.getElementById("WoonOmstandigheidCodelijst").value),
+        "woningaanpassing":replaceEmptyStrWithNull(document.getElementById("WoningAanpassingCodelijst").value),
+        "woningtoelichting":replaceEmptyStrWithNull(document.getElementById("inputToelWoning").value),
+        "iq":replaceEmptyStrWithNull(document.getElementById("inputIQ").value),
 
     }
 }
@@ -107,25 +85,6 @@ function updatePatient(patient){
     )
 }
 
-function savePatientChanges(){
-    let patient = getBasicPatientObjFromForm()
-    patient["patientid"] = parseInt(document.getElementById("inputPatientID").value)
-    patient["persoonid"] = parseInt(document.getElementById("inputPersoonID").value)
-
-    updatePatient(patient).then(data => updatePersoon(patient, data)).done(function(){
-        window.location.reload()
-        displayAlert("patient_details_alert", "Wijzigingen opgeslagen!", "success")
-    }).fail(function(){
-        displayAlert("patient_details_alert", "Wijzigingen konden niet worden opgeslagen, probeer het later nog eens", "danger")
-    })
-}
-
-function getPatientInfo(patientID){
-    return $.getJSON("patient/get/" + patientID, {}, function(result){
-        fillPatientDetailsFields(result.patient[0])
-        return result.patient[0]
-    })
-}
 
 function showPatientDetails(){
     const patientID = getPatientIDFromURL()
@@ -135,22 +94,35 @@ function showPatientDetails(){
 }
 
 function fillPatientDetailsFields(patientData){
-    document.getElementById("inputTitels").value = patientData.persoonByPersoonid.titels
-    document.getElementById("inputVoornaam").value = patientData.persoonByPersoonid.voornamen
-    document.getElementById("inputInitialen").value = patientData.persoonByPersoonid.initialen
-    document.getElementById("inputRoepnaam").value = patientData.persoonByPersoonid.roepnaam
-    document.getElementById("inputVoorvoegsels").value = patientData.persoonByPersoonid.voorvoegsels
-    document.getElementById("inputAchternaam").value = patientData.persoonByPersoonid.achternaam
-    document.getElementById("inputGender").value = patientData.gender
-    document.getElementById("inputGeslacht").value = patientData.geslacht
-    document.getElementById("inputGebdat").value = patientData.geboortedatum
-    document.getElementById("inputPatientID").value = patientData.patientid
-    document.getElementById("inputPersoonID").value = patientData.persoonByPersoonid.persoonid
     try {
-        document.getElementById("inputSchooltype").value = patientData.schooltype
-        document.getElementById("inputToel").value = patientData.schooltype_toelichting
+        document.getElementById("inputTitels").value = patientData.persoonByPersoonid.titels
+        document.getElementById("inputVoornaam").value = patientData.persoonByPersoonid.voornamen
+        document.getElementById("inputInitialen").value = patientData.persoonByPersoonid.initialen
+        document.getElementById("inputRoepnaam").value = patientData.persoonByPersoonid.roepnaam
+        document.getElementById("inputVoorvoegsels").value = patientData.persoonByPersoonid.voorvoegsels
+        document.getElementById("inputAchternaam").value = patientData.persoonByPersoonid.achternaam
+        document.getElementById("inputGeslacht").value = patientData.geslacht
+        document.getElementById("inputGebdat").value = patientData.geboortedatum
+        document.getElementById("inputStraat").value = patientData.straat
+        document.getElementById("inputPostcode").value = patientData.postcode
+        document.getElementById("inputHuisnummer").value = patientData.huisnummer
+        document.getElementById("inputWoonplaats").value = patientData.woonplaats
+        document.getElementById("inputGemeente").value = patientData.gemeente
+        document.getElementById("inputEmailadres").value = patientData.emailadres
+        document.getElementById("inputTelefoonnummer").value = patientData.telefoonnummer
+        document.getElementById("inputWoningdatum").value = patientData.woningdatum
+        document.getElementById("WoningTypeCodelijst").value = patientData.woningtype
+        document.getElementById("WoonOmstandigheidCodelijst").value = patientData.woningomstandigheid
+        document.getElementById("WoningAanpassingCodelijst").value = patientData.woningaanpassing
+        document.getElementById("inputToelWoning").value = patientData.woningtoelichting
+        document.getElementById("inputIQ").value = patientData.iq
+
+        document.getElementById("inputPatientID").value = patientData.patientid
+        document.getElementById("inputPersoonID").value = patientData.persoonByPersoonid.persoonid
     }
-    catch {}
+    catch (error) {
+        console.error("Velden invullen mislukt:", error)
+    }
 }
 
 function getSelectedPatientId(){
