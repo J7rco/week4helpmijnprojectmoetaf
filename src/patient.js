@@ -78,8 +78,20 @@ function getBasicPatientObjFromForm(){
         "gender": parseInt(document.getElementById("inputGender").value),
         "geslacht": replaceEmptyStrWithNull(document.getElementById("inputGeslacht").value),
         "geboortedatum": replaceEmptyStrWithNull(document.getElementById("inputGebdat").value),
-        "schooltype": replaceEmptyStrWithNull(document.getElementById("inputSchooltype").value),
-        "schooltype_toelichting": replaceEmptyStrWithNull(document.getElementById("inputToel").value)
+        "straat":replaceEmptyStrWithNull(document.getElementById("inputStraat").value),
+        "postcode":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
+        "huisnummer":replaceEmptyStrWithNull(document.getElementById("inputHuisnummer").value),
+        "woonplaats":replaceEmptyStrWithNull(document.getElementById("inputWoonplaats").value),
+        "gemeente":replaceEmptyStrWithNull(document.getElementById("inputGemeente").value),
+        "emailadres":replaceEmptyStrWithNull(document.getElementById("inputEmailadres").value),
+        "telefoonnummer":replaceEmptyStrWithNull(document.getElementById("inputTelefoonnummer").value),
+        "woningdatum":replaceEmptyStrWithNull(document.getElementById("inputWoningdatum").value),
+        "woningtype":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
+        "woningomstandigheid":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
+        "woningaanpassing":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
+        "woningtoelichting":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
+        "iq":replaceEmptyStrWithNull(document.getElementById("inputPostcode").value),
+
     }
 }
 
