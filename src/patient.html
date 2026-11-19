@@ -61,6 +61,9 @@
 <div id="patient_new_alert" class="row"></div>
 <div class="patient-details">
     <form class="row g-3" id="patient-details-form">
+
+        <!-- Naam Gegevens -->
+
         <div class="col-md-2">
             <label for="inputTitels" class="form-label">Titels</label>
             <input type="text" id="inputTitels" class="form-control">
@@ -90,6 +93,70 @@
             <label for="inputRoepnaam" class="form-label">Roepnaam</label>
             <input type="text" id="inputRoepnaam" class="form-control" required>
         </div>
+
+<!--         Woonsituatie  -->
+
+        <div class="col-md-6">
+            <label for="inputWoningdatum" class="form-label">Woningdatum</label>
+            <input type="date" id="inputWoningdatum" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label for="WoningTypeCodelijst" class="form-label">Woning Type</label>
+            <select id="WoningTypeCodelijst" class="form-control">
+                <option value="" selected disabled hidden>Selecteer woningtype</option>
+                <option value="BOVENW">Bovenwoning</option>
+                <option value="BENEDENW">Benedenwoning</option>
+                <option value="EENGEZW">Eengezinswoning</option>
+                <option value="FLATW">Appartement of flatwoning</option>
+                <option value="AANLW">Aanleunwoning</option>
+                <option value="WOONB">Woonboot</option>
+                <option value="WOONW">Woonwagen</option>
+                <option value="AWBZIN">Instelling AWBZ</option>
+                <option value="WLZIN">Instelling WLZ</option>
+                <option value="ZVWIN">Instelling ZVW</option>
+                <option value="WMOIN">Instelling WMO</option>
+                <option value="AZC">Asielzoekers-centrum</option>
+                <option value="DAKLOO">Dakloos</option>
+                <option value="OTH">Anders</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="WoonOmstandigheidCodelijst" class="form-label">Woning Omstandigheid</label>
+            <select id="WoonOmstandigheidCodelijst" class="form-control">
+                <option value="" selected disabled hidden>Selecteer woningtype</option>
+                <option value="160708008">Huis bevat trap</option>
+                <option value="609241003">Woont in appartement met lift</option>
+                <option value="715758005">Toegang tot woning via trap</option>
+                <option value="424948003">Ingang van woning geblokkeerd</option>
+                <option value="423155007">Huis bevat structurele belemmering voor verplaatsing	</option>
+                <option value="424661000">Rommelige leefruimte</option>
+                <option value="424415008">Vieze leefomstandigheden</option>
+                <option value="224152001">Houdt huisdieren</option>
+                <option value="423527000">Vloerbedekking onveilig</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="WoningAanpassingCodelijst" class="form-label">Woning Aanpassinglijst</label>
+            <select id="WoningAanpassingCodelijst" class="form-control">
+                <option value="" selected disabled hidden>Selecteer woningtype</option>
+                <option value="467158009">Badstoel en/of douchestoel</option>
+                <option value="465153004">Traplift</option>
+                <option value="465302005">Aangepast toilet</option>
+                <option value="705401004">Aangepast bed</option>
+                <option value="705390009">Woningaanpassing</option>
+                <option value="360303004">Wandbeugel</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputToelWoning" class="form-label">Toelichting Woning</label>
+            <input type="text" id="inputToelWoning" class="form-control">
+        </div>
+
+<!-- Extra gegevens-->
 
         <div class="col-md-6 form-filler">
             <input type="number" id="inputPersoonID">
@@ -126,27 +193,13 @@
         </div>
 
         <div class="col-md-6">
-            <label for="inputSchooltype" class="form-label">Schooltype</label>
-            <select id="inputSchooltype" class="form-control">
-                <option value="" selected disabled hidden>Selecteer schooltype</option>
-                <option value="111">Basisonderwijs</option>
-                <option value="121">Vmbo-b/k, mbo1</option>
-                <option value="122">Vmbo-g/t, havo-, vwo-onderbouw</option>
-                <option value="211">Mbo2 en mbo3</option>
-                <option value="212">Mbo4</option>
-                <option value="213">Havo, vwo</option>
-                <option value="311">Hbo-, wo-bachelor</option>
-                <option value="321">Hbo-, wo-master, doctor</option>
-                <option value="20200">Speciaal (basis)onderwijs</option>
-                <option value="01011">Voortgezet speciaal onderwijs</option>
-                <option value="UNK">Onbekend</option>
-                <option value="OTH">Anders</option>
-            </select>
+            <label for="inputToel" class="form-label">Toelichting</label>
+            <input type="text" id="inputToel" class="form-control">
         </div>
 
         <div class="col-md-6">
-            <label for="inputToel" class="form-label">Toelichting</label>
-            <input type="text" id="inputToel" class="form-control">
+            <label for="inputIQ" class="form-label">IQ</label>
+            <input type="number" id="inputIQ" class="form-control">
         </div>
 
     </form>
