@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Nieuwe patiënt</title>
     <!--    bootstrap-->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!--    bootstrap icons-->
@@ -32,6 +35,8 @@
     <!-- <link rel="stylesheet" th:href="@{css/login.css}"> -->
     <link rel="stylesheet" href="./nav.css">
 </head>
+
+
 <body>
 <header>
     <div th:fragment="header" class="header">
@@ -51,6 +56,8 @@
         <button type="button" class="btn" onclick="insertPatient()">Patiënt opslaan</button>
     </div>
 </div>
+
+
 <div id="patient_new_alert" class="row"></div>
 <div class="patient-details">
     <form class="row g-3" id="patient-details-form">
@@ -58,18 +65,22 @@
             <label for="inputTitels" class="form-label">Titels</label>
             <input type="text" id="inputTitels" class="form-control">
         </div>
+
         <div class="col-md-2">
             <label for="inputInitialen" class="form-label">Initialen</label>
             <input type="text" id="inputInitialen" class="form-control">
         </div>
+
         <div class="col-md-2">
             <label for="inputVoorvoegsels" class="form-label">Voorvoegsels</label>
             <input type="text" id="inputVoorvoegsels" class="form-control">
         </div>
+
         <div class="col-md-6">
             <label for="inputAchternaam" class="form-label">Achternaam</label>
             <input type="text" id="inputAchternaam" class="form-control" required>
         </div>
+
         <div class="col-md-6">
             <label for="inputVoornaam" class="form-label">Voornamen</label>
             <input type="text" id="inputVoornaam" class="form-control">
@@ -79,11 +90,13 @@
             <label for="inputRoepnaam" class="form-label">Roepnaam</label>
             <input type="text" id="inputRoepnaam" class="form-control" required>
         </div>
+
         <div class="col-md-6 form-filler">
             <input type="number" id="inputPersoonID">
         </div>
 
         <div class="col-md-6 form-filler"></div>
+
         <div class="col-md-6">
             <label for="inputGender" class="form-label">Gender</label>
             <select id="inputGender" class="form-control">
@@ -92,6 +105,7 @@
                 <option value="33791000087105">Non-binair/anders</option>
             </select>
         </div>
+
         <div class="col-md-6">
             <label for="inputGeslacht" class="form-label">Geslacht</label>
             <select id="inputGeslacht" class="form-control">
@@ -101,13 +115,16 @@
                 <option value="UN">Anders</option>
             </select>
         </div>
+
         <div class="col-md-6">
             <label for="inputGebdat" class="form-label">Geboortedatum</label>
             <input type="date" id="inputGebdat" class="form-control">
         </div>
+
         <div class="col-md-6 form-filler">
             <input type="number" id="inputPatientID">
         </div>
+
         <div class="col-md-6">
             <label for="inputSchooltype" class="form-label">Schooltype</label>
             <select id="inputSchooltype" class="form-control">
@@ -126,11 +143,15 @@
                 <option value="OTH">Anders</option>
             </select>
         </div>
+
         <div class="col-md-6">
             <label for="inputToel" class="form-label">Toelichting</label>
             <input type="text" id="inputToel" class="form-control">
         </div>
+
     </form>
 </div>
+
+
 </body>
 </html>
