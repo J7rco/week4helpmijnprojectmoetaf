@@ -2,9 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dit is een patient</title>
+    <title>Nieuwe patiënt</title>
+    <!--    bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--    bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--    jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--select2-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!--plotly.js-->
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" charset="utf-8"></script>
+    <!--    local scripts-->
+    <!-- <script type="text/javascript" th:src="@{js/database/login.js}"></script>
+    <script type="text/javascript" th:src="@{js/database/meting.js}"></script>
+    <script type="text/javascript" th:src="@{js/database/arts.js}"></script> -->
+    <script type="text/javascript" src="./persoon.js"></script>
+    <script type="text/javascript" src="./patient.js"></script>
+    <!-- <script type="text/javascript" th:src="@{js/database/behandelCombinatie.js}"></script>
+    <script type="text/javascript" th:src="@{js/database/diagnose.js}"></script> -->
+    <!-- <script type="text/javascript" th:src="@{js/utils.js}"></script> -->
+    <!-- <script type="text/javascript" th:src="@{js/SNOMED.js}"></script> -->
+    <!--local styles-->
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./form.css">
+    <!-- <link rel="stylesheet" th:href="@{css/list.css}"> -->
+    <!-- <link rel="stylesheet" th:href="@{css/login.css}"> -->
+    <link rel="stylesheet" href="./nav.css">
 </head>
 <body>
+<header>
+    <div th:fragment="header" class="header">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="navbar" id="navbarSupportedContent">
+                <a class="nav-link nav-logout"></a>
+                <a class="nav-link" aria-current="page" href="/patients">Patiënten</a>
+                <a class="nav-link" aria-current="page" href="/home"><img th:src="@{AUMC_logo.png}" class="aumc-logo"></a>
+                <a class="nav-link" aria-current="page" href="/account">Mijn account</a>
+                <a class="nav-link nav-logout" aria-current="page" href="javascript:void(0);" onclick="logout()"><i class="bi bi-box-arrow-right"></i></a>
+            </div>
+        </nav>
+    </div>
+</header>
+<div id="editPatient">
+    <div class="btn-group" role="group" id="patientEditOptionsGroup">
+        <button type="button" class="btn" onclick="insertPatient()">Patiënt opslaan</button>
+    </div>
+</div>
+<div id="patient_new_alert" class="row"></div>
+<div class="patient-details">
+    <form class="row g-3" id="patient-details-form">
+        <div class="col-md-2">
+            <label for="inputTitels" class="form-label">Titels</label>
+            <input type="text" id="inputTitels" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <label for="inputInitialen" class="form-label">Initialen</label>
+            <input type="text" id="inputInitialen" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <label for="inputVoorvoegsels" class="form-label">Voorvoegsels</label>
+            <input type="text" id="inputVoorvoegsels" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label for="inputAchternaam" class="form-label">Achternaam</label>
+            <input type="text" id="inputAchternaam" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+            <label for="inputVoornaam" class="form-label">Voornamen</label>
+            <input type="text" id="inputVoornaam" class="form-control">
+        </div>
 
+        <div class="col-md-6">
+            <label for="inputRoepnaam" class="form-label">Roepnaam</label>
+            <input type="text" id="inputRoepnaam" class="form-control" required>
+        </div>
+        <div class="col-md-6 form-filler">
+            <input type="number" id="inputPersoonID">
+        </div>
+
+        <div class="col-md-6 form-filler"></div>
+        <div class="col-md-6">
+            <label for="inputGender" class="form-label">Gender</label>
+            <select id="inputGender" class="form-control">
+                <option value="446151000124109">Man</option>
+                <option value="446141000124107">Vrouw</option>
+                <option value="33791000087105">Non-binair/anders</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputGeslacht" class="form-label">Geslacht</label>
+            <select id="inputGeslacht" class="form-control">
+                <option value="" selected disabled hidden>Selecteer geslacht</option>
+                <option value="M">Man</option>
+                <option value="F">Vrouw</option>
+                <option value="UN">Anders</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputGebdat" class="form-label">Geboortedatum</label>
+            <input type="date" id="inputGebdat" class="form-control">
+        </div>
+        <div class="col-md-6 form-filler">
+            <input type="number" id="inputPatientID">
+        </div>
+        <div class="col-md-6">
+            <label for="inputSchooltype" class="form-label">Schooltype</label>
+            <select id="inputSchooltype" class="form-control">
+                <option value="" selected disabled hidden>Selecteer schooltype</option>
+                <option value="111">Basisonderwijs</option>
+                <option value="121">Vmbo-b/k, mbo1</option>
+                <option value="122">Vmbo-g/t, havo-, vwo-onderbouw</option>
+                <option value="211">Mbo2 en mbo3</option>
+                <option value="212">Mbo4</option>
+                <option value="213">Havo, vwo</option>
+                <option value="311">Hbo-, wo-bachelor</option>
+                <option value="321">Hbo-, wo-master, doctor</option>
+                <option value="20200">Speciaal (basis)onderwijs</option>
+                <option value="01011">Voortgezet speciaal onderwijs</option>
+                <option value="UNK">Onbekend</option>
+                <option value="OTH">Anders</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputToel" class="form-label">Toelichting</label>
+            <input type="text" id="inputToel" class="form-control">
+        </div>
+    </form>
+</div>
 </body>
 </html>

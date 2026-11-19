@@ -1,0 +1,86 @@
+
+#patientOptionsGroup, #patientEditOptionsGroup, #newDiagnoseGroup, #updateDiagnoseGroup, #editArtsOptionsGroup, #editPatientOptionsGroup{
+    float: right;
+    margin-top: 10px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+#metingOptionsGroup, #metingOptionsUpdateGroup, #metingDeleteGroup, #change-pw-btn{
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-filler {
+    visibility: hidden;
+}
+
+
+#patient-details-form, #diagnose-details-form, #artsDetailsForm, #meting-nav, #meting-accordion, .meting-form, #change-password-form{
+    width: calc(100% - 20px);
+    margin-left: 10px;
+}
+
+#change-password-form{
+    margin-top: 20px;
+}
+
+.meting-form-item input{
+    margin:0;
+    padding:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+
+.meting-form-item input:active +.meting-form-item{opacity: .9;}
+.meting-form-item input:checked +.meting-form-item{
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+}
+
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* colors for selected emojis */
+.val1 input[type=radio]:checked + label {
+    color: var(--emoji-red);
+}
+
+.val2 [type=radio]:checked + label {
+    color: var(--emoji-orange);
+}
+
+.val3 [type=radio]:checked + label {
+    color: var(--emoji-yellow);
+}
+
+.val4 [type=radio]:checked + label {
+    color: var(--emoji-light-green);
+}
+
+.val5 [type=radio]:checked + label {
+    color: var(--emoji-green);
+}
+
+.meting-form-item{
+    border: 1px solid #00778A;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+h6 {
+    margin-left: 20px;
+}
+
+#meting-form-header h5{
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+}

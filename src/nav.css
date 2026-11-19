@@ -1,0 +1,48 @@
+#patientOverview .list-group, .patient-details{
+    width: 100%;
+}
+
+#patient-nav{
+    width: 200px;
+    float: left;
+}
+
+#patient-tab-content{
+    width: calc(100% - 200px);
+    float: right;
+}
+
+#patient-tab{
+    border-right: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
+    border-bottom: 0;
+}
+
+#patient-tab .nav-tabs .nav-link.active {
+    border-color: #dee2e6 #fff #dee2e6 #dee2e6;
+}
+
+.nav-logout{
+    width: 16px;
+}
+
+.nav-pat .nav-link{
+    width: 150px;
+}
+
+.nav-pat #nav-logout-float{
+    float: right;
+}
+
+.text-align-right{
+    text-align: right;
+}
+
+.navbar{
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#meting-today{
+    width: calc(100% - 20px);
+    margin-left: 10px;
+}

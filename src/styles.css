@@ -1,0 +1,55 @@
+/*Emoji color constants*/
+:root{
+    --emoji-red: red;
+    --emoji-orange: orange;
+    --emoji-yellow: gold;
+    --emoji-light-green: lightgreen;
+    --emoji-green: green;
+}
+
+body{
+    height: 100vh;
+}
+
+.btn{
+    background-color: #00778A;
+    color: white
+}
+
+#newDiagnoseGroup button {
+    margin-right: -25px;
+}
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    width: 150px;
+    height: 110px;
+    background-image: url("../spinning-cat.gif");
+    background-size: cover;
+    animation: spin 2s linear infinite;
+}
+
+
+/*media queries allow for css rules to be applied if the screen matches some condition(s)*/
+/*in this case, if the screen width is more than or equal to min-width, the rules within the {} are applied*/
+@media (min-width: 768px){
+    .metingValue{
+        float: right;
+    }
+
+    .metingValueHeader{
+        text-align: end;
+    }
+}
